@@ -1,0 +1,42 @@
+body {
+    /* background-image: url('Library.jpg'); */
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    font-family: Arial;
+}
+
+#title {
+    font-size: 100px;
+    font-weight: bold;
+}
+
+form {
+    color: white;
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    text-shadow: 3px 3px 5px rgb(71, 64, 54);
+}
+
+a {
+    text-decoration: none;
+    font-size: 40px;
+}
+
+button {
+    width: 400px;
+    border-radius: 2px;
+    background-color: rgb(194, 167, 132);
+    border-color: black;
+    text-align: center;
+    padding: 30px;
+    margin: 50px;
+}
+.option:hover
+{
+  background-color: rgb(71, 64, 54);
+  color: white;
+}

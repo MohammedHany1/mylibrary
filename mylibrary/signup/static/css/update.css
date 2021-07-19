@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  font-family: Arial;
+}
+
+.account form
+{
+  color: white;
+  position: absolute;
+  font-weight: bold;
+  left: 42%;
+  top: 26%;
+  text-shadow: 3px 3px 5px rgb(71, 64, 54);
+  font-size: 135%;
+}
+.accountPass
+{
+  color: white;
+  position: absolute;
+  font-weight: bold;
+  left:30%;
+  top: 10%;
+  text-shadow: 3px 3px 5px rgb(71, 64, 54);
+  font-size: 135%;
+}
+.accountPass h2
+{
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgb(95, 95, 95);
+}
+.account h2
+{
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgb(95, 95, 95);
+}
+#line{
+  border: 2px solid white;
+}
+[type=submit] {
+  font-weight: normal;
+  background-color: rgb(194, 167, 132);
+  color: black;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+}
+[type=submit]:hover {
+  background-color: rgb(71, 64, 54);
+  color: white;
+}
+#back
+{
+ color: black;
+ position: absolute;
+ font-weight: normal;
+ padding: 10px 15px;
+ background-color: rgb(194, 167, 132);
+ cursor: pointer;
+ border: none;
+}
+#back:hover
+{
+  background-color: grey;
+  color: black;
+}
+#togglePassword
+{
+  text-shadow: 2px 2px 5px white;
+  margin-left: -12%;
+  cursor: pointer;
+  color: black;
+}
+

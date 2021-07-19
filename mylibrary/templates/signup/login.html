@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+    <head>
+        <title>Log in</title>
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+        <style>
+        body
+        {
+            background-image: url("{% static 'images/Library.jpg' %}");
+        }
+        </style>
+        <script type="text/javascript">
+            function ShowPass() {
+              var pass = document.getElementById("password");
+              if (pass.type === "password") {
+                  pass.type = "text";
+              }
+              else {
+                pass.type = "password";
+              }
+            }
+        </script>
+    </head>
+
+    <body>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="login">
+              <h1 id="title">Login</h1>
+
+              <label for="username"><b>Username</b></label><br>
+                <input type="text" placeholder="username" name="username" id="username" required><br><br>
+
+
+              <label for="password"><b>Password</b></label><br>
+              <input type="password" placeholder="Password" name="password" id="password" required>
+              <i class="far fa-eye" id="togglePassword" onclick="ShowPass()"></i><br><br>
+
+                {% for message in messages %}
+                        {{message}}
+                        {% endfor %} <br>
+
+              <button type="submit" class="login" style='background-color: rgb(194, 167, 132); cursor: pointer;'>Login</button>
+            </div>
+
+            <div class="signup">
+              <p>Don't have an account? <a href="{% url 'index' %}" >Signup</a>.</p>
+            </div>
+          </form>
+      </div>
+    </body>
+</html>

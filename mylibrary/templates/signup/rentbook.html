@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+
+<head>
+    <title>Borrow book</title>
+    <link rel="stylesheet" href="{% static 'css/addbook.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images\Library.jpg' %}");
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <br><br>
+    <div class="text" >Borrrow Book<br><br></div>
+
+    <form method="POST" >
+        {% csrf_token %}
+        <div id="textbox" style="left: 37%;">
+            <p id="hide" style="display:none;">
+            <label for="user"><b>User</b></label><br>
+            {{form.user}}<br><br>
+            <label for="book"><b>Select Book</b></label><br>
+            {{form.book}}<br><br>
+        </p>
+            <label for="returndate"><b>Return Date</b></label><br>
+            <label for="returndate"><b>Please type in this format: YYYY-MM-DD</b></label><br>
+            {{form.returndate}}<br><br>
+            {% for message in messages %}
+            {{message}}
+            {% endfor %} <br>
+            <input class="button" type="submit" value="Borrow" style="cursor: pointer;">
+        </div>
+    </form>
+</body>
+
+</html>
+{% endblock content %}

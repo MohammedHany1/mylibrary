@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Home Page</title>
+    <link rel="stylesheet" href="{% static 'css/student_home.css' %}">
+    <style>
+        body
+        {
+            background-image: url("{% static 'images\Library.jpg' %}");
+        }
+    </style>
+
+</head>
+<body>
+
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <div class="container">
+            <p>Student Home Page</p><br><br>
+            <a href="{% url 'borrowbook' %}" class="Button" style='background-color: rgb(194, 167, 132);' >Display Borrowed Books</a>
+            <a href="{% url 'browse' %}" class="Button" style='background-color: rgb(194, 167, 132);'>Browse Books</a>
+           
+    </div>
+
+
+</body>
+</html>
+
+{% endblock content %}

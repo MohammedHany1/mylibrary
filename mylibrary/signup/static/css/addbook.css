@@ -1,0 +1,43 @@
+.text
+{
+    color:white;
+    font-size:26px;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 3px 3px black;
+}   
+
+#textbox
+{
+    color:white;
+    font-weight: bold;
+    overflow : hidden ;
+    position : absolute;
+    left : 40%;
+    text-align : left;
+    padding: 30px;
+    background-color: rgba(0,0,0, 0.4); 
+
+    
+}
+.button{
+    background-color:#DEB887;
+    color: black;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    
+}
+
+  .button2{
+    background-color:#DEB887;
+    color: black;
+    padding: 20px 39px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    top: 40%;
+    
+}

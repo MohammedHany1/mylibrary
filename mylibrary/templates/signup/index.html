@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+<head>
+  <title>Sign up</title>
+  <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <style>
+    body {
+      background-image: url("{% static 'images/Library.jpg' %}");
+    }
+  </style>
+  <script type="text/javascript">
+    function ShowPass() {
+      var pass = document.getElementById("password");
+      if (pass.type === "password") {
+        pass.type = "text";
+      }
+      else {
+        pass.type = "password";
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <div class="signup">
+      <h1 id="title">Signup</h1>
+
+      <label for="username"><b>Username</b></label><br>
+
+      {{form.username}}<br>
+
+      <label for="first_name"><b>First Name</b></label><br>
+
+      {{form.first_name}}<br>
+
+      <label for="last_Name"><b>Last Name</b></label><br>
+
+      {{form.last_name}}<br>
+
+      <label for="email"><b>Email</b></label><br>
+
+      {{form.email}}<br>
+
+      <label for="password"><b>Password</b></label><br>
+
+      {{form.password1}}<br>
+
+      <label for="password2"><b>Confirm Password</b></label><br>
+
+      {{form.password2}}<br><br>
+
+      <label for="userType"><b>What type of user are you?</b></label><br><br>
+      <input type="radio" name="userType" value="student" id="student"><label for="student" class="choice"><b>Student
+          &nbsp &nbsp</b></label>
+      <input type="radio" name="userType" value="admin" id="admin"><label for="admin"
+        class="choice"><b>Admin</b></label>
+
+      <br><br>
+
+      {% if form.errors %}
+      {% for field in form %}
+      {% for error in field.errors %}
+      {{ error|escape }}
+      {% endfor %}
+      {% endfor %}
+      {% for error in form.non_field_errors %}
+      {{ error|escape }}
+      {% endfor %}
+      {% endif %} <br>
+
+      <button type="submit" class="signup"
+        style='background-color: rgb(194, 167, 132); cursor: pointer;'>Signup</button>
+    </div>
+
+    <div class="login">
+      <p>Already have an account? <a href="{% url 'signin' %}">Login</a>.</p>
+    </div>
+
+  </form>
+  </div>
+</body>
+
+</html>

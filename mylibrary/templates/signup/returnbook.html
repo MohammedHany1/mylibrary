@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+<title>Return Book</title>
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/updatebook.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images\Library.jpg' %}");
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="text">Return Book<br><br></div>
+    <form method="POST" >
+        {% csrf_token %}
+        <div id="textbox" style="left: 37%;">
+            <p id="hide" style="display:none;">
+            <label for="user"><b>User</b></label><br>
+            {{form.user}}<br><br>
+            <label for="book"><b>Select Book</b></label><br>
+            {{form.book}}<br><br>
+            <label for="returndate"><b>Return Date</b></label><br>
+            <label for="returndate"><b>Please type in this format: YYYY-MM-DD</b></label><br>
+            {{form.returndate}}<br><br>
+        </p>
+        <p>
+            Are you sure you want to return {{book}}?
+        </p>
+
+            <input class="button" type="submit" value="Return" style="cursor: pointer;">
+        </div>
+    </form>
+    </form>
+</body>
+
+</html>
+{% endblock content %}

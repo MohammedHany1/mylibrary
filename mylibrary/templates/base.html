@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+ {% load static %}
+
+<head>
+  <link rel="stylesheet" href="{% static 'css/Inheritedcss.css' %}">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+  <div class='nav'>
+    {%if user.is_superuser %}
+    <a class="material-icons" id = "icnHome" href="{% url 'adminhome' %}">home</a>
+    {%else%}
+    <a class="material-icons" id = "icnHome" href="{% url 'student' %}">home</a>
+    {%endif%}
+    <a style="float: right;" href="{% url 'logoutt' %}">Log out</a>
+    <a class="material-icons" id = "icnProfile" style="float: right;" href="{% url 'update' %}">person</a>
+  </div>
+</body>
+
+</html>
+
+{% block content %}
+{% endblock content %}

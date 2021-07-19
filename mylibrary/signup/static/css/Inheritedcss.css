@@ -1,0 +1,41 @@
+body {
+  /* background-image: url('\static\images\Library.jpg'); */
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  font-family: Arial;
+}
+
+.nav {
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.nav a {
+  margin: 0.5%;
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 0.9% 1%;
+  text-decoration: none;
+  font-size: 20px;
+  border-radius: 5%;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  background-color: rgb(253, 184, 104);
+  color: rgb(255, 255, 255);
+}
+
+#icnHome{
+  color: white;
+  font-size: 35px;
+}
+#icnProfile{
+  color: white;
+  font-size: 33px;
+}
+

@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    font-family: Arial;
+  }
+  
+  #label {
+    font-size: 70px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 5px rgb(95, 95, 95);
+    -webkit-text-stroke: 0.5px rgba(124, 14, 14, 0.664);
+  }
+  
+  #search {
+    top:25%;
+    left:31%;
+    position: absolute;
+    width:37.5%;
+    height: 45px;
+    font-size: 17px;
+    border-radius: 10px;
+  } 
+  
+  
+  #icnSearch {
+    top:25%;
+    left:68.5%;
+    position: absolute;
+    width:60px;
+    height: 45px;
+    font-size: 17px;
+    border-radius: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+  }
+  
+  #line { 
+    margin: 4.5%;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 10px;
+  }
+  
+  table {
+    width: 70%;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    margin-bottom: 5.5%;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    color: rgb(255, 242, 219);
+  }
+  #top {
+    background-color:rgb(216, 178, 135);
+  }
+  
+  .row {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  #add
+  {
+    background-color:#DEB887;
+    position: absolute;
+    color: black;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    top: 35%;
+    left: 77%;
+  }

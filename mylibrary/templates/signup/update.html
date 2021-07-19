@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+<head>
+  <title>Update Account Information</title>
+  <link rel="stylesheet" href="{% static 'css/update.css' %}">
+  <style>
+    body {
+      background-image: url("{% static 'images\Library.jpg' %}");
+    }
+  </style>
+  <script type="text/javascript">
+
+    function insure() {
+      alert("Information updated");
+    }
+  </script>
+</head>
+
+<body>
+
+  <div class='account'>
+
+    <h2> Update account details </h2>
+    <hr id="line">
+    <br><br>
+
+    <form method="post">
+      {% csrf_token %}
+      <div class="Edit Profile">
+
+
+        <label for="username"><b>Username</b></label><br>
+        <!-- <input type="text" placeholder="Username" name="username" id="username" required maxlength="10" minlength="3"><br><br> -->
+        {{form.username}}<br>
+
+        <label for="first_name"><b>First Name</b></label><br>
+        <!-- <input type="text" placeholder="First Name" name="firstName" id="firstName" required maxlength="10" minlength="3"><br><br> -->
+        {{form.first_name}}<br>
+
+        <label for="last_Name"><b>Last Name</b></label><br>
+        <!-- <input type="text" placeholder="Last Name" name="lastName" id="lastName" required maxlength="10" minlength="3"><br><br> -->
+        {{form.last_name}}<br>
+
+        <label for="email"><b>Email</b></label><br>
+        <!-- <input type="text" placeholder="user@gmail.com" name="email" id="email" required><br><br> -->
+        {{form.email}}<br><br>
+
+        <p>If you want to change your password click <a href="{% url 'updatepassword' %}">here</a></p>
+
+        <button type="submit" onclick="insure()" style='background-color: rgb(194, 167, 132);'> Update</button>
+    </form>
+  </div>
+
+</body>
+
+</html>
+
+{% endblock content %}

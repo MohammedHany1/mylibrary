@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/BookList.css' %}">
+    <title>Browse Books</title>
+    <style>
+        body {
+            background-image: url("{% static 'images\Library.jpg' %}");
+        }
+
+    </style>
+
+    <script src="{% static 'js/Booklist.js' %}"></script>
+
+</head>
+
+<body>
+
+    <div id="label">
+        All Books
+    </div>
+
+    <div>
+        <input type="text" id="search" onkeyup="searchBy()"
+            placeholder="Search by ISBN, title, category, publication year, or author">
+        <button type="submit" id="icnSearch" onclick="searchBy()"><i class="material-icons">search</i></button>
+    </div>
+
+    <hr id="line">
+    {%if user.is_superuser %}
+    <a href="{% url 'addbook' %}"><input class="button2" type="button" value="+ Add Book" 
+        id="add" style="cursor: pointer;"></a>
+   
+    {%endif%}
+    <div>
+        <table id="table">
+            <tbody>
+
+                <tr id="top">
+                    {%if user.is_superuser %}
+                    <th> Update </th>
+                    {%else%}
+                    <th> Borrow </th>
+                    {%endif%}
+                    <th> Title </th>
+                    <th> Author </th>
+                    <th> Category </th>
+                    <th> ISBN </th>
+                    <th> Year </th>
+                </tr>
+                {%for book in books %}
+                {%if book.available %}
+                <tr class="row">
+                    {%if user.is_superuser %}
+                    <td>
+                        <a href="{% url 'changebook' book.id %}"><input class="button2" type="button" value="Update"
+                         style="font-size: 15px; background-color: transparent; color: white; border-color:#DEB887; cursor: pointer;"></a>
+                        
+                    </td>
+                    {%else%}
+                    <td>
+                        <a href="{% url 'rentbook' id=book.id %}"><input class="button2" type="button" value="Borrow"
+                         style="font-size: 15px; background-color: transparent; color: white; border-color:#DEB887; cursor: pointer;"></a>
+                        
+                    </td>
+                    {%endif%}
+                    <td>
+                        <label for="{{forloop.counter}}"> {{book.title}} </label>
+                    </td>
+                    <td>
+                        <label for="{{forloop.counter}}"> {{book.author}} </label>
+                    </td>
+                    <td>
+                        <label for="{{forloop.counter}}"> {{book.category}} </label>
+                    </td>
+                    <td>
+                        <label for="{{forloop.counter}}"> {{book.ISBN}}</label>
+                    </td>
+                    <td>
+                        <label for="{{forloop.counter}}"> {{book.year}} </label>
+                    </td>
+                </tr>
+                {%endif%}
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+    </div>
+
+</body>
+
+</html>
+
+{% endblock content %}

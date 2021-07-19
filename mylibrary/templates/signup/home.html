@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+    <head>
+        <title>Home Page</title>
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+        <style>
+        body
+        {
+            background-image: url("{% static 'images/Library.jpg' %}");
+        }
+        </style>
+    </head>
+
+    <body>
+        <form>
+            <h1 id="title">Welcome</h1>
+            <button class="option" id="login"><a href="{% url 'signin' %}">Login</a></button><br><br>
+
+            <button class="option" id="signup"><a href="{% url 'index' %}">Signup</a></button>
+
+        </form>
+    </body>
+</html>

@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+<head>
+    <title> Borrowed Books</title>
+
+    <link rel="stylesheet" href="{% static 'css/BookList.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images\Library.jpg' %}");
+        }
+    </style>
+
+    <script src="{% static 'js/Booklist.js' %}"></script>
+</head>
+
+<body>
+
+    <div id="label">
+
+        Borrowed Books
+
+    </div>
+    <div>
+        <input type="text" id="search" onkeyup="searchBy()"
+            placeholder="Search by ISBN, title, category, publication year, or author">
+        <button type="submit" id="icnSearch" onclick="searchBy()"><i class="material-icons">search</i></button>
+    </div>
+
+    <hr id="line">
+    <table id="table">
+        <tbody>
+
+            <tr id="top">
+                {%if user.is_superuser == False %}
+                <th> Extend </th>
+                <th> Return </th>
+                {%endif%}
+                <th> User </th>
+                <th> Book </th>
+                <th> Author </th>
+                <th> Returndate </th>
+
+
+            </tr>
+            {%for booking in books%}
+            {%if booking.book.available == False%}
+            {%if user.is_superuser %}
+            <tr class="row">
+                <td>
+                    <label> {{booking.user}} </label>
+                </td>
+                <td>
+                    <label> {{booking.book}} </label>
+                </td>
+
+                <td>
+                    <label>{{booking.book.author}} </label>
+                </td>
+                <td>
+                    <label> {{booking.returndate}} </label>
+                </td>
+            </tr>
+            {%else%}
+            {%if booking.user == request.user%}
+            <tr class="row">
+                <td>
+                    <a href="{% url 'extendbook' id=booking.id %}"><input class="button2" type="button" value="Extend"
+                            style="font-size: 15px; background-color: transparent; color: white; border-color:#DEB887; cursor: pointer;"></a>
+                </td>
+                <td>
+                    <a href="{% url 'returnbook' id=booking.id %}"><input class="button2" type="button" value="Return"
+                            style="font-size: 15px; background-color: transparent; color: white; border-color:#DEB887; cursor: pointer;"></a>
+                </td>
+                <td>
+                    <label> {{booking.user}} </label>
+                </td>
+                <td>
+                    <label> {{booking.book}} </label>
+                </td>
+                <td>
+                    <label>{{booking.book.author}} </label>
+                </td>
+                <td>
+                    <label> {{booking.returndate}} </label>
+                </td>
+            </tr>
+            {%endif%}
+            {%endif%}
+            {%endif%}
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+</body>
+
+
+</html>
+
+{% endblock content %}

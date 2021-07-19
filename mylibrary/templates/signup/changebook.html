@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+<title>Update book</title>
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/updatebook.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images\Library.jpg' %}");
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="text">Update book details<br><br></div>
+    <form method="POST">
+        {% csrf_token %}
+        <div id="textbox">
+            <label for="title"><b>Title</b></label><br>
+            {{form.title}}<br><br>
+            <label for="Author"><b>Author</b></label><br>
+            {{form.author}}<br><br>
+            <label for="ISBN"><b>ISBN</b></label><br>
+            {{form.ISBN}}<br><br>
+            <label for="Category"><b>Category</b></label><br>
+            {{form.category}}<br><br>
+            <label for="Year"><b>Year</b></label><br>
+            {{form.year}}<br><br>
+            <label for="Available"><b>Available</b></label><br>
+            {{form.available}}<br><br>
+
+            <input class="button" type="submit" value="Update" style="cursor: pointer;">
+            <a href="{% url 'browse' %}"><input class="button" type="button" value="Back"></a>
+
+        </div>
+    </form>
+</body>
+
+</html>
+{% endblock content %}
