@@ -1,6 +1,6 @@
 My Library Project
 
-my library was made with HTML, CSS, JavaScribt for frontend and Django with SQLite for backend
+my library was made with HTML, CSS, JavaScribt for frontend and Python, Django with SQLite for backend
 
 my library is a simple library that provides these services:
   sign up & login system for both admins and users.
